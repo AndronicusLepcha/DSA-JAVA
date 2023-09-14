@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch ReverseNumber",
+            "request": "launch",
+            "mainClass": "ReverseNumber",
+            "projectName": "DSA-JAVA_78f7e43a"
+        },
+        {
+            "type": "java",
+            "name": "Launch SumofNumbers",
+            "request": "launch",
+            "mainClass": "SumofNumbers",
+            "projectName": "DSA-JAVA_78f7e43a"
+        },
+        {
+            "type": "java",
+            "name": "Launch Factorial",
+            "request": "launch",
+            "mainClass": "Factorial",
+            "projectName": "DSA-JAVA_78f7e43a"
+        },
+        {
+            "type": "java",
+            "name": "Launch PrintNumbers",
+            "request": "launch",
+            "mainClass": "PrintNumbers",
+            "projectName": "DSA-JAVA_78f7e43a"
+        },
+        {
+            "type": "java",
             "name": "Launch Fibonacci",
             "request": "launch",
             "mainClass": "Fibonacci",
