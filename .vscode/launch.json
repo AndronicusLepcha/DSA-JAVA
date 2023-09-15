@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch LinearSearch",
+            "request": "launch",
+            "mainClass": "LinearSearch",
+            "projectName": "DSA-JAVA_78f7e43a"
+        },
+        {
+            "type": "java",
+            "name": "Launch IsArrraySorted",
+            "request": "launch",
+            "mainClass": "IsArrraySorted",
+            "projectName": "DSA-JAVA_78f7e43a"
+        },
+        {
+            "type": "java",
+            "name": "Launch FindStepsToMakeZero",
+            "request": "launch",
+            "mainClass": "FindStepsToMakeZero",
+            "projectName": "DSA-JAVA_78f7e43a"
+        },
+        {
+            "type": "java",
+            "name": "Launch CountZeroes",
+            "request": "launch",
+            "mainClass": "CountZeroes",
+            "projectName": "DSA-JAVA_78f7e43a"
+        },
+        {
+            "type": "java",
             "name": "Launch ReverseNumber",
             "request": "launch",
             "mainClass": "ReverseNumber.ReverseNumber",
