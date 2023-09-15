@@ -1,4 +1,5 @@
 import Bank.bank; //inside bank folder bank clas is present
+class Base_Claas{
     public static void main(String args[]){
         bank ob1 = new bank();
         //ob1.name="Andronicus";

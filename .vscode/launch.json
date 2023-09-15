@@ -8,6 +8,20 @@
             "type": "java",
             "name": "Launch ReverseNumber",
             "request": "launch",
+            "mainClass": "ReverseNumber.ReverseNumber",
+            "projectName": "DSA-JAVA_78f7e43a"
+        },
+        {
+            "type": "java",
+            "name": "Launch Pallindrom",
+            "request": "launch",
+            "mainClass": "Pallindrom",
+            "projectName": "DSA-JAVA_78f7e43a"
+        },
+        {
+            "type": "java",
+            "name": "Launch ReverseNumber",
+            "request": "launch",
             "mainClass": "ReverseNumber",
             "projectName": "DSA-JAVA_78f7e43a"
         },
