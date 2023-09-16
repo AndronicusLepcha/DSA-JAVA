@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch problem1",
+            "request": "launch",
+            "mainClass": "Pattern.problem1",
+            "projectName": "DSA-JAVA_78f7e43a"
+        },
+        {
+            "type": "java",
+            "name": "Launch RotatedBinarySearch",
+            "request": "launch",
+            "mainClass": "RotatedBinarySearch",
+            "projectName": "DSA-JAVA_78f7e43a"
+        },
+        {
+            "type": "java",
             "name": "Launch Return_array",
             "request": "launch",
             "mainClass": "Return_array",
