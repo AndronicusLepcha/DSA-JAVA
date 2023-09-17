@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch BubbleSort",
+            "request": "launch",
+            "mainClass": "Sorting.BubbleSort",
+            "projectName": "DSA-JAVA_78f7e43a"
+        },
+        {
+            "type": "java",
             "name": "Launch problem1",
             "request": "launch",
             "mainClass": "Pattern.problem1",
