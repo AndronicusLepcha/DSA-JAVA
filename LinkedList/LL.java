@@ -1,3 +1,10 @@
+//1.Creating node
+//2.Insert at the End
+//3.Display the LL
+//4.Deletion at any index
+//5.Searching a node
+
+import java.util.*;
 class Node{
     int value;
     Node next;
@@ -17,6 +24,7 @@ class Node{
     }
 }
 class List{
+    Scanner sc = new Scanner(System.in);
     Node head;
     Node tail;
     int size;
@@ -32,6 +40,50 @@ class List{
         Node node=new Node(value,null);
         tail.next=node;
         tail=node;
+    }
+
+    void deleteNode(){
+        System.out.println("Enter the postion where you want to delete index(0-n)");
+        int pos=sc.nextInt();
+        Node itr=head;
+        int curerent_index=0;
+
+        if (pos==0){
+            head=head.next;
+            System.out.println("Deleted node at index "+pos);
+        }else{
+            while(itr != null){
+                curerent_index++;
+                Node temp=itr;
+                itr=itr.next;
+                if(curerent_index == pos){
+                    itr=itr.next;
+                    temp.next=itr;
+                    System.out.println("Deleted node at index "+pos);
+                    break;
+                }
+            }
+        }
+
+    }
+
+    void searchNode(){
+        Display();
+        System.out.println("Enter the data to search in node");
+        int value=sc.nextInt();
+        Node itr=head;
+        int index = 0;
+        while(itr != null){
+            if(itr.value == value){
+                System.out.println("Data is present at index "+index);
+                break;
+            }
+            itr=itr.next;
+            if(itr==null){
+                System.out.println("No data found 404 Error");
+            }
+        }
+
     }
 
     void Display(){
@@ -61,5 +113,8 @@ public class LL {
         ll.addNode(201);
         ll.addNode(202);
         ll.Display();
+        ll.deleteNode();
+      //  ll.Display();
+        ll.searchNode();
     }
 }
