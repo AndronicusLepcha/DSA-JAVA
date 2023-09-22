@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch LL",
+            "request": "launch",
+            "mainClass": "LL",
+            "projectName": "DSA-JAVA_78f7e43a"
+        },
+        {
+            "type": "java",
             "name": "Launch MergeSort",
             "request": "launch",
             "mainClass": "Sorting.MergeSort",
