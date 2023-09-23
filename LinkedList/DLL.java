@@ -3,6 +3,7 @@
 //3.Display from start to end
 //4.Display from end to first
 //5.addNode at  any index
+//6.Delete at any index
 import java.util.*;
 class Node{
     int value;
@@ -66,6 +67,29 @@ class createDLL{
             itr=itr.next;
         }
     }
+
+    void deleteAtAnyIndex(){
+        display();
+        System.out.println("Enter the Position to delete the node");
+        int pos=sc.nextInt();
+        Node itr=head;
+        Node temp;
+        int index=0;
+        while(itr !=null){
+            if(pos==index){
+                //temp=itr;
+                temp=itr.prviousNode;
+                itr=itr.next;
+                itr.prviousNode=temp;
+                temp.next=itr;
+            }
+            itr=itr.next;
+            index++;
+        }
+
+
+    }
+
     void display(){
         System.out.print("null->");
         Node itr=head;
@@ -96,6 +120,7 @@ public class DLL {
         dll.display();
         dll.displayBackward();
         dll.addNodeAtAnyIndex(900);
+        dll.deleteAtAnyIndex();
         dll.display();
         
     }
