@@ -51,8 +51,8 @@ class createDLL{
                 System.out.println("inserted");
                 break;
             }else{
+                Node temp=itr.prviousNode;
                 if(pos==index){
-                    Node temp=itr.prviousNode;
                     Node node=new Node(value);
                     node.next=itr;
                     node.prviousNode=temp;
@@ -63,8 +63,15 @@ class createDLL{
                 }
             }
             index++;
-          //  Node temp=itr;
             itr=itr.next;
+            if(itr.next==null){
+                System.out.println("I think you want to enter in the last index");
+                Node node=new Node(value,itr,null);
+                itr.next=node;
+                tail=node;
+                break;
+                
+            }
         }
     }
 
@@ -76,12 +83,26 @@ class createDLL{
         Node temp;
         int index=0;
         while(itr !=null){
-            if(pos==index){
+            if(pos==0){
+               temp=itr.next;
+               //System.out.println("hello0");
+               temp.prviousNode=null;
+               head=temp;    
+               break; 
+            } 
+            else if(pos == index){
                 //temp=itr;
+                if(itr.next==null){
+                    //System.out.println("Its last index");
+                    temp=itr.prviousNode;
+                    temp.next=null;
+                    break;
+                }
                 temp=itr.prviousNode;
                 itr=itr.next;
                 itr.prviousNode=temp;
                 temp.next=itr;
+                break;
             }
             itr=itr.next;
             index++;
