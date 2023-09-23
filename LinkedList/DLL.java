@@ -143,6 +143,8 @@ public class DLL {
         dll.addNodeAtAnyIndex(900);
         dll.deleteAtAnyIndex();
         dll.display();
+        //System.out.println(dll.tail.value);
+        dll.displayBackward();
         
     }
 }
