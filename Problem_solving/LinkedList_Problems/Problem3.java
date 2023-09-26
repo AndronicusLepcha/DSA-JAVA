@@ -89,7 +89,7 @@ class List{
         return false;
     }
     //calculate cycle length
-    public boolean CycleLength() {
+    public int lengthCycle(Node head) {
         Node fast=head;
         Node slow=head;
         while(fast != null && fast.next !=null){
@@ -102,11 +102,47 @@ class List{
                     temp=temp.next;
                     length++;
                 }while(temp!=slow);
+                return length;
             }
         }
-        return false;
+        return 0;
+
+    }
+    //
+    public Node detectCylcle(Node head){    
+        int length=0;
+        Node fast=head;
+        Node slow=head;
+        while(fast != null && fast.next !=null){
+            fast=fast.next.next;
+            slow=slow.next;
+            if(fast==slow){
+                length= lengthCycle(slow);
+                break;
+            }
+        }
+        //no cycle 
+        if(length==0){
+            return null;
+        }
+        //find the start node
+        Node f= head;
+        Node s= head;
+        while(length>0){
+            s=s.next;
+            length--;
+        }
+        //keep moving both forward and they will meet at cycle
+        while(f != s ){
+            f=f.next;
+            s=s.next;
+        }
+        return s;
     }
 }
+
+
+
 
 public class Problem3{
     public static void main(String[] args) {
