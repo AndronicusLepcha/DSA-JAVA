@@ -64,8 +64,51 @@ class List{
         }
         merge.Display();
     }
+    /**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+//Checks for the cycle and aslo calculate the length of the cycle
+    public boolean hasCycle() {
+        Node fast=head;
+        Node slow=head;
+        while(fast != null && fast.next !=null){
+            fast=fast.next.next;
+            slow=slow.next;
+            if(fast==slow){
+                return true;
+            }
+        }
+        return false;
+    }
+    //calculate cycle length
+    public boolean CycleLength() {
+        Node fast=head;
+        Node slow=head;
+        while(fast != null && fast.next !=null){
+            fast=fast.next.next;
+            slow=slow.next;
+            if(fast==slow){
+                Node temp=slow;
+                int length=0;
+                do{
+                    temp=temp.next;
+                    length++;
+                }while(temp!=slow);
+            }
+        }
+        return false;
+    }
 }
-public class Problem2{
+
+public class Problem3{
     public static void main(String[] args) {
         List firstList=new List();
         List secondList=new List();
