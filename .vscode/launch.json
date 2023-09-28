@@ -6,6 +6,41 @@
     "configurations": [
         {
             "type": "java",
+            "name": "MergeLL",
+            "request": "launch",
+            "mainClass": "MergeLL",
+            "projectName": "DSA-JAVA_78f7e43a"
+        },
+        {
+            "type": "java",
+            "name": "LinkedList",
+            "request": "launch",
+            "mainClass": "LinkedList",
+            "projectName": "DSA-JAVA_78f7e43a"
+        },
+        {
+            "type": "java",
+            "name": "MergeSortLinkedList",
+            "request": "launch",
+            "mainClass": "MergeSortLinkedList",
+            "projectName": "DSA-JAVA_78f7e43a"
+        },
+        {
+            "type": "java",
+            "name": "SortLinkedList",
+            "request": "launch",
+            "mainClass": "SortLinkedList",
+            "projectName": "DSA-JAVA_78f7e43a"
+        },
+        {
+            "type": "java",
+            "name": "MiddleElement",
+            "request": "launch",
+            "mainClass": "MiddleElement",
+            "projectName": "DSA-JAVA_78f7e43a"
+        },
+        {
+            "type": "java",
             "name": "Happyno",
             "request": "launch",
             "mainClass": "Happyno",
