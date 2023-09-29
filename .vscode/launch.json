@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ReverseLL",
+            "request": "launch",
+            "mainClass": "ReverseLL",
+            "projectName": "DSA-JAVA_78f7e43a"
+        },
+        {
+            "type": "java",
+            "name": "LLBubbleSort",
+            "request": "launch",
+            "mainClass": "LLBubbleSort",
+            "projectName": "DSA-JAVA_78f7e43a"
+        },
+        {
+            "type": "java",
             "name": "MergeLL",
             "request": "launch",
             "mainClass": "MergeLL",
