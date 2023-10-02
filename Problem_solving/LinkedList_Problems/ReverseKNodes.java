@@ -31,44 +31,96 @@ class LinkedList{
         }
         System.out.print("-->null\n");
     }
-    
-    void ReverseNNodes(Node head,int k){
-        if(k<=1 ||head ==null){
-            return;
-        }
+    Node OnlyReverse(Node head){
         Node prev=null;
         Node current=head;
-       
-        while(true){
-            Node last=prev;
-            Node newEnd=current;
 
-            Node next=current.next;
-
-            for(int i=0;current != null && i<k ;i++){
-                current.next=prev;
-                prev=current;
-                current=next;
-                if(next != null){
-                    next=next.next;
-                }
-            }
-            if(last != null){
-            last.next=prev;
-            }else{
-                head=prev;
-            }
-            newEnd.next=current;
-       
-            if(current == null){
-                break;
-            }
-             prev=newEnd;
-            }
+        Node next=current.next;
+        
+        while(current != null){
+            current.next=prev;
+            prev=current;
+            current=next;
+            if(next != null){
+                next = next.next;
+            }    
         }
+        head=prev;
+        return prev;
+    }
+    void reverseL2R(Node head,int left,int right){
+        Node prev=null;
+        Node current=head;
+        //taverse till L-1 node 
+        for(int i=0; i < left-1;i++){
+            prev=current;
+            current=current.next;
+        }
+        Node first=prev;
+        Node last=current;
+
+        Node next=current.next;
+        for(int i=0;current != null && i<right-left+1;i++){
+            current.next=prev;
+            prev=current;
+            current=next;
+            if(next != null){
+                next=next.next;
+            }
+        } 
+        if(first != null){
+            first.next=prev;
+        }else{
+            first=head;
+        }
+        last.next=current;
+    }
+
+    Node ReverseNNodes(Node head,int k){
+        if(head == null||head.next == null) 
+            return head;
+        Node temp = head;
+        int length = 0;
+        //calculate length 
+        while(temp != null)
+        {
+            length++;
+            temp=temp.next;
+        }
+
+        Node dummyHead = new Node(0);
+        dummyHead.next = head;
+
+        Node pre = dummyHead;
+        Node cur;
+        Node nex;
+        while(length >= k) {
+            cur = pre.next;
+            nex = cur.next;
+           
+            for(int i=1;i<k;i++) {
+                cur.next = nex.next;
+                nex.next = pre.next;
+                pre.next = nex;
+                nex = cur.next;
+            }
+            //this is for not reverse next itertion
+            // pre = cur;
+
+            // length = length - k;
+            // for(int i=1;i<k;i++) {
+            //     pre=cur;
+            //     cur=nex;
+            //     nex=nex.next;
+            // }
+            pre = cur;
+            length = length - k;
+        }
+        return dummyHead.next;
+    }
         
         
-     }
+}
 
 public class ReverseKNodes{
     public static void main(String[] args) {
@@ -77,12 +129,13 @@ public class ReverseKNodes{
         ll.addNode(2);
         ll.addNode(3);
         ll.addNode(4);
-        ll.addNode(5);
-        // ll.addNode(8);
-        //ll.addNode(7);
+        ll.addNode(8);
+        ll.addNode(7);
         ll.displayNode(ll.head);
-        ll.ReverseNNodes(ll.head,2);
-        ll.displayNode(ll.head);
+        //ll.ReverseNNodes(ll.head,2);
+        //ll.displayNode(ll.OnlyReverse(ll.head));
+        //ll.reverseL2R(ll.head,2,4);
         
+        ll.displayNode(ll.ReverseNNodes(ll.head,2));        
     }
 }
