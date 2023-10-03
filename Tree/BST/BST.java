@@ -1,3 +1,6 @@
+//1.BST Insertion
+//2.Calculate Height
+//3.Balanced tree or not
 import java.util.*;
 class Tree{
     static class Node{
@@ -56,6 +59,25 @@ class Tree{
         return Math.max(getHeight(node.left),getHeight(node.right))+1;
     }
 
+    boolean isBalanced(Node node){
+        return getHeightForBaalancedCheck(node) != -1;
+    }
+
+    int getHeightForBaalancedCheck(Node node){ // O(n) Time complexity  to calculate height aswell as balanced
+        if(node == null){
+            return 0;
+        }
+        int leftHeight=getHeightForBaalancedCheck(node.left);
+        if(leftHeight == -1 ) return -1;
+
+        int rightHeight=getHeightForBaalancedCheck(node.right);
+        if(rightHeight == -1) return -1;
+
+        if(Math.abs(leftHeight-rightHeight) > 1 ) return -1;
+
+        return Math.max(leftHeight,rightHeight)+1;
+    }
+
 
 
     void prettyDisplay(Node node){
@@ -86,5 +108,6 @@ class BST{
         System.out.println(t.root);
         int h=t.getHeight(t.root);
         System.out.println("Tree Height is "+h);
+        System.out.println("Is tree balanced ? : "+t.isBalanced(t.root));
     }
 }
