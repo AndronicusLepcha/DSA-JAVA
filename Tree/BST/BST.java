@@ -15,8 +15,8 @@ class Tree{
     void createTree(Scanner sc){
         int data;
         System.out.println("Eenter the root node");
-        data=sc.nextInt();
-        Node root=new Node(data);
+        data=sc.nextInt(); 
+        root=new Node(data);
 
         boolean ch;
         System.out.println("Do you want to add other node ");
@@ -32,6 +32,7 @@ class Tree{
         prettyDisplay(root,0);
         
     }
+
     void addNode(Node node,int data){
        if(data<node.value){
             if(node.left == null){
@@ -46,6 +47,13 @@ class Tree{
                 addNode(node.right,data);
             }
        }
+    }
+
+    int getHeight(Node node){
+        if(node == null){
+            return 0;
+        }
+        return Math.max(getHeight(node.left),getHeight(node.right))+1;
     }
 
 
@@ -75,5 +83,8 @@ class BST{
         Scanner sc=new Scanner(System.in);
         Tree t=new Tree();
         t.createTree(sc);
+        System.out.println(t.root);
+        int h=t.getHeight(t.root);
+        System.out.println("Tree Height is "+h);
     }
 }
