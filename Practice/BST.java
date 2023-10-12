@@ -51,6 +51,14 @@ class Tree{
         //System.out.println(node.data);
         
     }
+    int getHeight(Node node){
+        if(node==null){
+            return 0;
+        }
+        int left=getHeight(node.left);
+        int right=getHeight(node.right);
+        return Math.max(left,right)+1;
+    }
 }
 class BST{
     public static void main(String args[]){
@@ -58,5 +66,6 @@ class BST{
         Tree t=new Tree();
         t.createBST(sc);
         t.preetyDisplay(t.root);
+        System.out.println("Height of the tree is "+t.getHeight(t.root));
     }
 }
