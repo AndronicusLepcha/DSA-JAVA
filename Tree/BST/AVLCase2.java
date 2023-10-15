@@ -78,24 +78,21 @@ class Tree{
           //  System.out.println("Now it is balanced root data = "+root.value);
 
           //  System.out.println("Tree need to be balanced from parent node "+node.value);
-            balanceCase1(node);
+            balanceCase2(node);
             return -1;
         }
 
         return Math.max(leftHeight,rightHeight)+1;
     }
 
-    void balanceCase1(Node node){
-      //  System.out.println("Parent node is "+ node.value);
-        Node x=node;  //4 node 
-        Node y=x.right;
-        Node z=y.right;
-
+    void balanceCase2(Node node){
+        System.out.println("Parent node is "+ node.value);
+        Node z=node;  //4 node 
+        Node y=z.left;
         
-        x.right=z;
-        root.right=y;
-        y.left=x;
-        x.right=null;
+        root.left=y;
+        y.right=z;
+        z.left=null;
 
        
         //System.out.println("Now it is balanced parent data = "+x.value);
@@ -123,7 +120,7 @@ class Tree{
        
     }
 }
-class AVLCase1{
+class AVLCase2{
     public static void main(String args[]){
         Scanner sc=new Scanner(System.in);
         Tree t=new Tree();
