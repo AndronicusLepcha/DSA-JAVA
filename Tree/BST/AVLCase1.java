@@ -10,8 +10,8 @@ class Tree{
         int height;
         Node(int value){
             this.value=value;
-            // this.left=null;
-            // this.right=null;
+            this.left=null;
+            this.right=null;
         }
     }
     Node root;
@@ -74,9 +74,9 @@ class Tree{
         if(rightHeight == -1) return -1;
 
         if(Math.abs(leftHeight-rightHeight) > 1 ){
-            System.out.println("Now it is balanced root data = "+root.value);
+          //  System.out.println("Now it is balanced root data = "+root.value);
 
-            System.out.println("Tree need to be balanced from parent node "+node.value);
+          //  System.out.println("Tree need to be balanced from parent node "+node.value);
             balanceCase1(node);
             return -1;
         }
@@ -85,14 +85,19 @@ class Tree{
     }
 
     void balanceCase1(Node node){
-        
-        Node p=node;
-        Node c=p.right;
-        
-        root.right=c;
-        c.left=p;
+      //  System.out.println("Parent node is "+ node.value);
+        Node x=node;  //4 node 
+        Node y=x.right;
+        Node z=y.right;
 
-        System.out.println("Now it is balanced root data = "+root.value);
+        
+        x.right=z;
+        root.right=y;
+        y.left=x;
+        x.right=null;
+
+       
+        //System.out.println("Now it is balanced parent data = "+x.value);
 
 
     }
@@ -124,9 +129,11 @@ class AVLCase1{
         t.createTree(sc);
         System.out.println(t.root);
         int h=t.getHeight(t.root);
-        System.out.println("Tree Height is "+h);
+        //System.out.println("Tree Height is "+h);
         System.out.println("Is tree balanced ? : "+t.isBalanced(t.root));
-        //t.prettyDisplay(t.root);
+        //System.out.println("Is tree balanced ? : "+t.isBalanced(t.root));
+        t.prettyDisplay(t.root);
+        System.out.println("Is tree balanced ? : "+t.isBalanced(t.root));
        // System.out.println("Is tree balanced ? : "+t.isBalanced(t.root));
     }
 }
