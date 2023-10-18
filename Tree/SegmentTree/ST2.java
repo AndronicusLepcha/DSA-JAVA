@@ -3,7 +3,11 @@ class ST2{
         int arr[]={3,8,7,6,-2,-8,4,9};
         ST2 node=new ST2(arr);
         node.display();
-    }
+        System.out.println(node.query(0,1));
+        node.update(0,100);
+        System.out.println(node.query(0,0));
+        //node.display();
+        }
 
     public static class Node{
         int data;
@@ -73,5 +77,42 @@ class ST2{
     if(node.right != null) {
       display(node.right);
     }
+  }
+  int query(int start,int end){
+      return this.query(this.root,start,end);
+    }
+  private int query(Node node,int start,int end){
+      if(node.start >= start && node.end <= end){
+        //inside the query interval
+        return node.data;
+      }else if(node.start > start || node.end <end){
+        //outside the query
+        return 0;
+      }else{
+        //overlapping
+        return this.query(node.left,start,end)+this.query(node.right,start,end);
+      }
+  }
+  void update(int indx,int val){
+    this.root.data=update(this.root,indx,val);
+  }
+  private int update(Node node,int indx,int val){
+    if(indx >= node.start && indx <= node.end){ //inside the range
+      if(indx == node.start && indx == node.end){
+        //base case
+        node.data=val;
+        System.out.println("Node data updated");
+        return node.data;
+
+      }else{
+        int right=update(node.right,indx,val);
+        int left=update(node.left,indx,val);
+        node.data = left+right;
+        return node.data;
+      }
+    }
+    //if index is out of range
+     //System.out.println("Node data updated");
+    return node.data;
   }
 }
