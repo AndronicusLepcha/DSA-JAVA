@@ -76,16 +76,50 @@ class Tree{
 
         return result;
     }
+
+    //average of each level
+    public List<Double> average(Node root) { //BFS
+        List<Double> result = new ArrayList<>();
+
+        if(root==null){
+            return result;
+        }
+
+        Queue <Node> q= new LinkedList<>();
+        q.offer(root);
+
+        while(!q.isEmpty()){
+            Double average=0.0;
+            int level=q.size();
+           // List<Integer> Curresult = new ArrayList<>();
+            for(int i=0;i<level;i++){
+                Node n=q.poll();
+                //Curresult.add(n.data);
+                average += n.data;
+
+                if(n.left != null){
+                    q.offer(n.left);
+                }
+                 if(n.right != null){
+                    q.offer(n.right);
+                }
+            }
+            result.add(average/level);
+        }
+
+        return result;
+    }
 }
-class bfs{
+class averageLevel{
     public static void main(String args[]){
         Tree t= new Tree();
-        t.addNode(34);
-        t.addNode(77);
+        t.addNode(4);
+        t.addNode(2);
+        t.addNode(3);
+        t.addNode(5);
         t.addNode(6);
-        t.addNode(20);
-        t.addNode(55);
         t.display();
         System.out.println(t.levelOrder(t.root));
+        System.out.println(t.average(t.root));
     }
 }

@@ -54,21 +54,21 @@ class Tree{
             return result;
         }
 
-        Queue <Node> q= new LinkedList<>();
-        q.offer(root);
+        Stack <Node> q= new Stack<>();
+        q.push(root);
 
         while(!q.isEmpty()){
             int level=q.size();
             List<Integer> Curresult = new ArrayList<>();
             for(int i=0;i<level;i++){
-                Node n=q.poll();
+                Node n=q.pop();
                 Curresult.add(n.data);
 
                 if(n.left != null){
-                    q.offer(n.left);
+                    q.push(n.left);
                 }
                  if(n.right != null){
-                    q.offer(n.right);
+                    q.push(n.right);
                 }
             }
             result.add(Curresult);
@@ -77,14 +77,16 @@ class Tree{
         return result;
     }
 }
-class bfs{
+class dfs{
     public static void main(String args[]){
         Tree t= new Tree();
-        t.addNode(34);
-        t.addNode(77);
+        t.addNode(1);
+        t.addNode(2);
+        t.addNode(3);
+        t.addNode(4);
+        t.addNode(5);
         t.addNode(6);
-        t.addNode(20);
-        t.addNode(55);
+        t.addNode(7);
         t.display();
         System.out.println(t.levelOrder(t.root));
     }
