@@ -19,14 +19,14 @@ class Tree{
         }
     }
     void addNewNode(Node node,int data){
-        if(node.data<data){
+        if(node.data>data){
             if(node.right == null){
                 node.right=new Node(data);
             }else{
                 addNewNode(node.right,data);
             }
         }
-        if(node.data>data){
+        if(node.data<data){
             if(node.left == null){
                 node.left=new Node(data);
             }else{
@@ -48,48 +48,66 @@ class Tree{
     }
 
     public List<Integer> zig(Node root){
+
         List<Integer> result = new ArrayList<>();
-
-        Deque<Node> dq=new ArrayDeque<>(); // deque created
-        dq.offer(root);
-        Boolean flag= false;
-        
-        while( !dq.isEmpty() ){
-            if(flag == false){
-                int level=dq.size();
-                Node node=dq.pollFirst();
-                result.add(node.data);
-
-                for(int i=0;i<level;i++){
-                    if(node.left!= null){
-                        dq.offerLast(node.left);
-                    }
-                    if(node.right!= null){
-                        dq.offerLast(node.right);
-                    }
-                }
-                flag=true;
-            }
-            if(flag == true){
-                int level=dq.size();
-                Node node=dq.pollLast();
-               
-                result.add(node.data);
-
-                for(int i=0;i<level;i++){
-                    if(node.right!= null){
-                        dq.addFirst(node.right);
-                        }
-                    if(node.left!= null){
-                        dq.addFirst(node.left);
-                        }
-                    }
-                }
-                flag=false;
-            }
-            return result;
+        if(root == null){
+            return result ;
         }
+
+        Deque<Node> dq=new ArrayDeque<>();
+
+        dq.add(root);
+    //flag
+        boolean flag=false;
+
+        while( !dq.isEmpty() ){
+            int level= dq.size();
+            System.out.println("Level Size is "+level);
+            for(int i=0;i<level;i++){
+                if(flag == false){
+                //normal oorder remove from front add in back
+                 System.out.println("I am  "+flag);
+                     
+                    Node node=dq.pollFirst(); //remove from front
+                    System.out.println("I am removed "+node.data);
+
+                    result.add(node.data);
+                    //add its child if exist
         
+                        if(node.right != null){
+                            dq.addLast(node.right);
+                            System.out.println("I am added in last "+node.right.data);
+                        }
+                        if(node.left != null){
+                            dq.addLast(node.left);
+                            System.out.println("I am added in last "+node.left.data);
+
+                        }
+                }else{
+                //remove from back add in front
+                    System.out.println("I am  "+flag);
+                    Node node=dq.pollLast();
+                    System.out.println("I am removed "+node.data);
+                    result.add(node.data);
+                    
+                //add its child if exist
+              
+                    if(node.right != null){
+                        dq.addFirst(node.right);
+                        System.out.println("I am added in first  "+node.right.data);
+
+                    }
+                    if(node.left != null){
+                        dq.addFirst(node.left);
+                        System.out.println("I am added in fist "+node.left.data);
+
+                    }
+                } 
+            }
+            flag=!flag;
+        }
+        return result;
+    }
 }
          
 class zigzag{
