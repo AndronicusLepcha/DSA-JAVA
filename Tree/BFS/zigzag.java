@@ -47,11 +47,11 @@ class Tree{
         display(node.right);
     }
 
-    public List<Integer> zig(Node root){
+    public List<List<Integer>> zig(Node root){
 
-        List<Integer> result = new ArrayList<>();
+        List<List<Integer>> fresult = new ArrayList<>();
         if(root == null){
-            return result ;
+            return fresult ;
         }
 
         Deque<Node> dq=new ArrayDeque<>();
@@ -61,6 +61,7 @@ class Tree{
         boolean flag=false;
 
         while( !dq.isEmpty() ){
+            List<Integer> result = new ArrayList<>();
             int level= dq.size();
             System.out.println("Level Size is "+level);
             for(int i=0;i<level;i++){
@@ -105,8 +106,9 @@ class Tree{
                 } 
             }
             flag=!flag;
+            fresult.add(result);
         }
-        return result;
+        return fresult;
     }
 }
          
