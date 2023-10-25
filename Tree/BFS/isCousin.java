@@ -89,6 +89,33 @@ class Tree{
         return (root.left == x && root.right==y) || (root.left == y && root.right==x) || isSibling(root.right,x,y) || isSibling(root.right,x,y);
     }
 
+    boolean isSysmetric(Treenode node){
+        Queue<Treenode> q=new LinkedList<>();
+        q.add(node.right);
+        q.add(node.left); 
+        while( !q.isEmpty() ){
+            Treenode right=q.poll();
+            Treenode left=q.poll();
+            if( right == null && left == null){
+                continue;
+            }
+            if( right == null || left == null){
+                return false;
+            }
+            if( right.val != left.val){
+                return false;
+            }
+            q.add(left.left);
+            q.add(right.right);
+            q.add(left.right);
+            q.add(right.left);
+
+        }
+
+        
+        return true;
+    }
+
 }
 class isCousin{
     public static void main(String args[]){
