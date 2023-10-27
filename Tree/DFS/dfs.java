@@ -50,6 +50,26 @@ class Tree{
         list.add(node.data);
         display(node.right,list);
     }
+
+    int diameter=0;
+    int diameter(Node node){
+        height(node);
+        return diameter;
+    }
+
+    int height(Node node){
+        if(node == null ){
+            return 0;
+        }
+        int left=height(node.left);
+        int right=height(node.right);
+
+        int dia=left+right;
+
+        diameter= Math.max(diameter,dia);
+
+        return Math.max(right,left)+1;
+    }
     
 }
 class dfs{
@@ -65,5 +85,6 @@ class dfs{
         //t.display();
        // System.out.println(t.levelOrder(t.root));
         System.out.println(t.depthfirstsearch());
+        System.out.println(t.diameter(t.root));
     }
 }
