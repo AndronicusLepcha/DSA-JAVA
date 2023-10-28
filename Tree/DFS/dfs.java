@@ -62,13 +62,26 @@ class Tree{
             return 0;
         }
         int left=height(node.left);
-        int right=height(node.right);
+        int right=height(node.right); 
 
         int dia=left+right;
 
         diameter= Math.max(diameter,dia);
 
         return Math.max(right,left)+1;
+    }
+
+    void swap(Node node){
+        if(node == null){
+            return null;
+        }
+        Node left=swap(node.left);
+        Node right=swap(node.right);
+        //swap
+        node.right=left;
+        node.left=right;
+
+        return node;
     }
     
 }
@@ -84,7 +97,7 @@ class dfs{
         t.addNode(7);
         //t.display();
        // System.out.println(t.levelOrder(t.root));
-        System.out.println(t.depthfirstsearch());
-        System.out.println(t.diameter(t.root));
+        //System.out.println(t.depthfirstsearch());
+        //System.out.println(t.diameter(t.root));
     }
 }
