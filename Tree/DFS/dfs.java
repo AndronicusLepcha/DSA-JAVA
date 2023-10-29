@@ -34,22 +34,22 @@ class Tree{
             }
         }
     }
-    public List <Integer> depthfirstsearch(){
-        List <Integer> list = new ArrayList<>();
-        display(this.root,list);
-        return list;
-    }
-    void display(Node node,List<Integer> list){
-        //in order display
-        if(node==null){
+    // public List <Integer> depthfirstsearch(){
+    //     List <Integer> list = new ArrayList<>();
+    //     display(this.root,list);
+    //     return list;
+    // }
+    // void display(Node node,List<Integer> list){
+    //     //in order display
+    //     if(node==null){
             
-            return;
-        }
-        display(node.left,list);
-        //System.out.println(node.data);
-        list.add(node.data);
-        display(node.right,list);
-    }
+    //         return;
+    //     }
+    //     display(node.left,list);
+    //     //System.out.println(node.data);
+    //     list.add(node.data);
+    //     display(node.right,list);
+    // }
 
     int diameter=0;
     int diameter(Node node){
@@ -71,7 +71,7 @@ class Tree{
         return Math.max(right,left)+1;
     }
 
-    void swap(Node node){
+    Node swap(Node node){
         if(node == null){
             return null;
         }
@@ -83,7 +83,45 @@ class Tree{
 
         return node;
     }
-    
+    void displayTree(Node node){
+        if(node == null){
+            return;
+        }
+        System.out.println(node.data);
+        displayTree(node.left);
+        displayTree(node.right);
+    }
+
+    Queue<Integer> q= new LinkedList<>();
+    void Flatten(Node node){
+        if(node == null){
+            return;
+        }
+        q.offer(node.data);
+        Flatten(node.left);
+        Flatten(node.right);
+    }
+
+    void flatten(Node root){
+        if(root == null){
+            return;
+        }
+        Node current= root;
+        while(current != null){
+            if(current.left != null){
+                Node temp=current.left;
+                //find the last right node
+                while(temp.right != null){
+                    temp=temp.right;
+                }
+                temp.right=current.right;
+                current.right=current.left;
+                current.left =null;
+            }
+            current=current.right;
+        }
+
+    }
 }
 class dfs{
     public static void main(String args[]){
@@ -95,9 +133,17 @@ class dfs{
         t.addNode(5);
         t.addNode(6);
         t.addNode(7);
+        t.displayTree(t.root);  
+        // l.addNode(90);
+        // l.addNode(80);
         //t.display();
        // System.out.println(t.levelOrder(t.root));
         //System.out.println(t.depthfirstsearch());
         //System.out.println(t.diameter(t.root));
+        t.Flatten(t.root);
+        t.flatten(t.root);
+        t.displayTree(t.root);
+        
+
     }
 }
