@@ -122,6 +122,24 @@ class Tree{
         }
 
     }
+    boolean isValidBST(Node root){
+        return helper(root,null,null);
+    }
+    public boolean helper(Node node , Integer low,Integer high){
+        if(node == null){
+            return true;
+        }
+        if( low!= null && node.data <= low){
+            return false;
+        }
+        if(high != null && node.data >= high){
+            return false;
+        }
+        boolean leftTree=helper(node.left,low,node.data);
+        boolean rightTree=helper(node.right,node.data,high); 
+
+        return leftTree&&rightTree;
+    }
 }
 class dfs{
     public static void main(String args[]){
@@ -140,10 +158,10 @@ class dfs{
        // System.out.println(t.levelOrder(t.root));
         //System.out.println(t.depthfirstsearch());
         //System.out.println(t.diameter(t.root));
-        t.Flatten(t.root);
-        t.flatten(t.root);
-        t.displayTree(t.root);
-        
+        // t.Flatten(t.root);
+        // t.flatten(t.root);
+        // t.displayTree(t.root);
+        System.out.println(t.isValidBST(t.root));
 
     }
 }
