@@ -158,13 +158,26 @@ class Tree{
         return left == null ? right : left;
     }
 
+    int kthSmallest(Node root,int k){
+        if(root == null){
+            return 0;
+        }
+        Node current=root;
+        while(current.left != null){
+            current = current.left;
+            k=k+1;
+        }
+        return k;
+
+    }
+
 }
 class dfs{
     public static void main(String args[]){
         Tree t= new Tree();
-        t.addNode(4);
-        t.addNode(2);
+        t.addNode(5);
         t.addNode(3);
+        t.addNode(2);
         t.addNode(1);
         t.addNode(5);
         t.addNode(6);
@@ -180,6 +193,7 @@ class dfs{
         // t.flatten(t.root);
         // t.displayTree(t.root);
         System.out.println(t.isValidBST(t.root));
+        System.out.println(t.kthSmallest(t.root,0));
 
     }
 }
