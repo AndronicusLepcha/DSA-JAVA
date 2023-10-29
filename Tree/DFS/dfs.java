@@ -140,6 +140,24 @@ class Tree{
 
         return leftTree&&rightTree;
     }
+
+    public Node commonAncestor(Node root,Node p , Node q){
+        if(root == null){
+            return null;
+        }
+        if(root == p || root == q){
+            return root;
+        }
+        Node left = commonAncestor(root.left,p,q);
+        Node right = commonAncestor(root.right,p,q);
+
+        if(left != null && right != null){
+            return root;
+        }
+
+        return left == null ? right : left;
+    }
+
 }
 class dfs{
     public static void main(String args[]){
