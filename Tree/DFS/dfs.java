@@ -193,7 +193,7 @@ class dfs{
         // t.flatten(t.root);
         // t.displayTree(t.root);
         System.out.println(t.isValidBST(t.root));
-        System.out.println(t.kthSmallest(t.root,0));
+//System.out.println(t.kthSmallest(t.root,0));
 
     }
 }
