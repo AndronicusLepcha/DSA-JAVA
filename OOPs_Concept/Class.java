@@ -38,8 +38,8 @@ class Class{
 
 
         final int INCREASE=90;
-        INCREASE=90;
-        
+        INCREASE=90; // This is not allowed 
+
 
 
 
