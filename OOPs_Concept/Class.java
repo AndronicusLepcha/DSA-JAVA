@@ -29,5 +29,16 @@ class Class{
         Student newobj=new Student("Andro");
         System.out.println(newobj.name);
 
+
+        // wo refeenrece vaible 
+        Student one = new Student();
+        Student two=one;
+        one.name="Blah Blah";
+        System.out.println("name = "+two.name);
+
+
+
+
+
     }
 }
