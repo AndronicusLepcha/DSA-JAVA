@@ -37,6 +37,11 @@ class Class{
         System.out.println("name = "+two.name);
 
 
+        final int INCREASE=90;
+        INCREASE=90;
+        
+
+
 
 
 
