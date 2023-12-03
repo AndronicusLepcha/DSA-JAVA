@@ -8,7 +8,7 @@ class Base{
 }
 
 class Child extends Base{
-    public void show(){
+    public void show(){ //function overriding here
         System.out.println("Overiding the show function that is extended from the base calass");
     }
 }
