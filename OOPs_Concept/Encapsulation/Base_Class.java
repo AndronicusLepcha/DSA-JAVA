@@ -1,4 +1,4 @@
-import Bank.bank; //inside bank folder bank clas is present
+import Bank.bank; //inside bank folder bank class is present
 class Base_Claas{
     public static void main(String args[]){
         bank ob1 = new bank();
