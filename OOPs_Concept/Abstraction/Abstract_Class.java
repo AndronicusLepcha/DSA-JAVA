@@ -5,7 +5,6 @@
 
 abstract class Animal{
     abstract void legs();
-
 }
 
 class Cat extends Animal{
