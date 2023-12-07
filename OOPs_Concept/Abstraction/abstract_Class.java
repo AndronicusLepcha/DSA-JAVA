@@ -4,6 +4,7 @@
 // you can also define the function in abstract class
 
 abstract class Animal{
+    // abstract Animal(); we cannot create the abstract constructor
     abstract void legs();
     abstract void dummy();
 }
