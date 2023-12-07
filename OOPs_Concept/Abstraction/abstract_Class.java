@@ -5,6 +5,7 @@
 
 abstract class Animal{
     abstract void legs();
+    abstract void dummy();
 }
 
 class Cat extends Animal{
@@ -14,8 +15,11 @@ class Cat extends Animal{
     void color(){
         System.out.println("color is white");
     }
+    void dummy(){
+        System.out.println("I am just a dummy function");
+    }
 }
-public class Abstract_Class{
+public class abstract_Class{
     public static void main(String args[]){
         Cat ob1 = new Cat();
         ob1.legs();
